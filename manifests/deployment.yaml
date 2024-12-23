@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-service
+  template:
+    metadata:
+      labels:
+        app: ml-service
+    spec:
+      containers:
+      - name: ml-service
+        # Update to your image name & tag
+        image: ghcr.io/kingabzpro/ml-service:latest
+        ports:
+          - containerPort: 8000
